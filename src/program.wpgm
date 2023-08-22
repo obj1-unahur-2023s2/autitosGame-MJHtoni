@@ -1,0 +1,30 @@
+import wollok.game.*
+import autos.*
+program juego {
+	
+	//Configurar el tablero
+	game.height(12)
+	game.width(12)
+	game.title("Hermoso Juego")
+	game.ground("paredLadrillos3.jpg")
+	
+	//Agregar el corsa al tablero
+	corsa.position{game.at(
+		0.randomUpTo(game.width()).truncate(0)
+		0.randomUpTo(game.height()).truncate(0)
+	)}
+	game.addVisual(corsa)
+	
+	//Agregar el kiwi al tablero
+	
+	kiwi.position{
+		0.randomUpTo(game.width()).truncate(0)
+		0.randomUpTo(game.height()).truncate(0)
+	}
+	game.addVisual(kiwi)
+	
+	keyboard.up().onPressDo{
+		(corsa.arriba())}
+	game.start()
+	
+}
