@@ -9,22 +9,35 @@ program juego {
 	game.ground("paredLadrillos3.jpg")
 	
 	//Agregar el corsa al tablero
-	corsa.position{game.at(
-		0.randomUpTo(game.width()).truncate(0)
-		0.randomUpTo(game.height()).truncate(0)
-	)}
+	corsa.position(game.at(
+		0.randomUpTo(game.width().truncate(0)),
+		0.randomUpTo(game.height().truncate(0))
+	))
 	game.addVisual(corsa)
 	
 	//Agregar el kiwi al tablero
 	
-	kiwi.position{
-		0.randomUpTo(game.width()).truncate(0)
-		0.randomUpTo(game.height()).truncate(0)
-	}
+	kiwi.position(game.at(
+		0.randomUpTo(game.width().truncate(0)),
+		0.randomUpTo(game.height().truncate(0))
+	))
 	game.addVisual(kiwi)
 	
 	keyboard.up().onPressDo{
 		(corsa.arriba())}
+	keyboard.down().onPressDo{
+		(corsa.abajo())}
+	keyboard.left().onPressDo{
+		(corsa.izquierda())}
+	keyboard.right().onPressDo{
+		(corsa.derecha())}
+	keyboard.w().onPressDo{
+		(kiwi.arriba())}
+	keyboard.s().onPressDo{
+		(kiwi.abajo())}
+	keyboard.a().onPressDo{
+		(kiwi.izquierda())}
+	keyboard.d().onPressDo{
+		(kiwi.derecha())}
 	game.start()
-	
 }
